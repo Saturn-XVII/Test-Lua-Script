@@ -1,7 +1,4 @@
 -- Script Made By: Urbigmumz
--- This is supposed to be in a LocalScript (or is it regular script?)
-
-script.Parent = game.ReplicatedStorage
 
 local UIS = game:GetService("UserInputService")
 local Players = game:GetService("Players")
@@ -11,21 +8,26 @@ local Humanoid = Character:WaitForChild("Humanoid")
 
 local LocalPlayersOnlineFriends = LocalPlayer.GetFriendsOnline(LocalPlayer, 50)
 
-local GUI = Instance.new("ScreenGUI", game.StarterGui)
-local GUIMainFrame = Instance.new("Frame", GUI)
+local GUI = Instance.new("ScreenGui")
+local GUIMainFrame = Instance.new("Frame")
 
 local isCustomGravity = false
 local CustomGravityValue = workspace.Gravity
 local OriginalGravity = workspace.Gravity
 
+GUI.Name = "GUI"
 GUI.Enabled = true
-GUI.Parent = game.CoreGui
+--GUI.Parent = game.CoreGui
+GUI.Parent = LocalPlayer:WaitForChild("PlayerGui")
+GUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 GUIMainFrame.Name = "MainGuiFrame"
-GUIMainFrame.Size = UDim2.new(0.5, 200, 0.5, 200)
-GUIMainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-GUIMainFrame.Position = UDim2.new(0.5, 200, 0.5, 200)
-GUIMainFrame.Visible = true
+GUIMainFrame.Parent = GUI
+GUIMainFrame.BackgroundColor3 = Color3.fromRGB(30, 130, 210)
+GUIMainFrame.BorderColor3 = Color3.fromRGB(10, 20, 40)
+GUIMainFrame.BorderSizePixel = 1
+GUIMainFrame.Position = UDim2.new(0.306954443, 0, 0.255627006, 0)
+GUIMainFrame.Size = UDim2.new(0, 366, 0, 269)
 
 if isCustomGravity then
 	workspace.Gravity = CustomGravityValue
